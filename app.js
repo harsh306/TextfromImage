@@ -33,6 +33,9 @@ var bucket = gcs.bucket('newajinkya');
 //if(err)	//
 	//console.log(err);//
 //});
+bucket.file('harshupload1.jpg').download({
+        destination: 'harshupload1.jpg'
+},function (err){});
   // Make a call to the Vision API to detect the faces
   vision.detectText('./harshupload1.jpg', function(error, text) {
     if (error) throw error;
@@ -40,7 +43,7 @@ var bucket = gcs.bucket('newajinkya');
 	console.log(text);
   });
 
-/*bucket.upload('harshupload.txt',function(err,file){
+bucket.upload('harshupload.txt',function(err,file){
 	if(err)
     console.log(err);
   else console.log("File upload");
@@ -49,7 +52,7 @@ bucket.file('harshupload1.jpg').download({
 	destination: 'harshupload1.jpg'
 },function (err){});
 // [START hello_world]
-// Say hello!
+/*// Say hello!
 app.get('/', function(req, res) {
   res.status(200).send('Hello, world!');
 });
